@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-@FeignClient("${user-service.name}")
+@FeignClient(name = "${user-service.name}", url = "${user-service.url}")
 public interface UserServiceFeignClient {
     @RequestMapping(method = RequestMethod.POST, value = "/v1/users/check-credentials", consumes = "application/json")
     boolean checkCredentials(@RequestBody UserCredentialsDto userCredentialsDto);
